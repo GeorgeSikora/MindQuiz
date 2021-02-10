@@ -1,13 +1,9 @@
 
-<div style="display: flex;">
-
-<p class="question" style="left: 50%; position: relative; transform: translate(-50%);">Správa moderátora</p>
-
-<a style="position: relative; bottom: 0;" class="small" href="javascript:void(0)" onclick="copyTextToClipboard('http:/\/goralia.online/mindquiz?managerPassword=<?php echo $managerPassword ?>'); alert('Token zkopírován')">
-  Zkopírovat odkaz
-</a>
-</div>
-
+<p class="question">Správa moderátora
+  <a class="small" href="javascript:void(0)" style="position: fixed; margin-top: 12px; margin-left: 8px;" onclick="copyTextToClipboard('http:/\/goralia.online/mindquiz?managerPassword=<?php echo $managerPassword ?>'); alert('Token zkopírován')">
+    <i class="fas fa-share-square" style="color: #700"></i>
+  </a>
+</p>
 <div class="answers">
     <a href="/mindquiz/manager/dictionary.php">Slovník</a>
 </div>

@@ -58,7 +58,7 @@ display: block;
 bottom: 32px; 
 left: 50%; 
 transform: translate(-50%, 0); 
-width: 70%; 
+width: 71%; 
 text-align: justify; 
 letter-spacing: -0.02px; 
 line-height: 1.5; 
@@ -69,19 +69,21 @@ font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-se
 
     <p style="color: #bbb; font-size: 20px; text-align: center;">O projektu:</p>
 
-    <p style="color: #aaa; font-size: 16px;">
-        Cílem projektu je zjednodušit náuku a procvičování otázek studentů. 
-        Dovést je ke správným odpovědím a zarýt si dané věci, témata a termíny do paměti efektivním systémem opakování a plnění denních cvičení, 
+    <div style="color: #aaa; text-align: center;"> 
+    <p style="font-size: 18px; text-align: justify;">
+        Cílem projektu je zjednodušit náuku a procvičování otázek studentů, 
+        dovést je ke správným odpovědím a zarýt si dané věci, témata a termíny do paměti efektivním systémem opakování a plnění denních cvičení, 
         které by zabíraly pár sekund, ať už na počítači, notebooku, tabletu, či mobilu. 
         Na algoritmu systému ještě pracuji, zatím jsou ještě kvízy ve fázi klasického procvičování, tudíž neberou ohled na minulé odpovědi, z kterých by čerpaly
         a podle statistik vyhodnocovaly jestli danou věc žák, nebo student ovládá natolik, aby se systém zaobíral opakováním této věci. 
 
         <br>
-
-        <span style="position: relative; left: 32px;">Sikora 10.2.2021 
-            <a href="https://github.com/GeorgeSikora" target="_blank" style="color: #fff">GitHub</a>
-        </span>
     </p>
+    
+    <p style="margin-top: 16px;">
+        Sikora 10.2.2021 <a href="https://github.com/GeorgeSikora" target="_blank" style="color: #fff">GitHub</a>
+    </p>
+    </div>
 
 </div>
 

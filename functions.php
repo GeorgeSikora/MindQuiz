@@ -1,3 +1,5 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 <?php
 
 $mysqli;
@@ -6,11 +8,7 @@ $managerPassword = 'f17e01e1e79b6bea00ab4941f23e2112';
 
 function db_connect() {
     global $mysqli;
-
-    // Vytvoří připojení k databázi
     $mysqli = new mysqli("localhost", "root", "", "mindquiz");
-
-    // Zkontroluj připojení s DB
     if ($mysqli -> connect_errno) {
     echo "Nepodařilo se připojit k databázi: " . $mysqli -> connect_error;
     exit();
