@@ -1,8 +1,7 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"].'/mindquiz/functions.php');
 
-if (!isset($_GET['category'])) die('Kategorie není definována');
-if (!isset($_GET['level'])) die('Level není definován');
+if (!isset($_GET['category'], $_GET['level'])) die('vyskytla se chyba');
 
 $category = $_GET['category'];
 $level = $_GET['level'];
@@ -12,31 +11,32 @@ db_connect();
 $user = getUser();
 $questionsDone = $user['questionsDone'] + 1;
 
+// dosáhl poslední otázky
 if ($questionsDone > 10) {
-    header('location: /mindquiz/final.php');
+    header('location: /mindquiz/final.php'); 
     return;
 }
 
-// Získání náhodného slovíčka
+// náhodné slovíčko pro otázku
 $word = getRandomWord($level);
-$englishWord = $word['englishWord'];
 
-// Nastaví uživateli aktuální otázku
-$currentQuestion = $word['id'];
-$userId = $user['id'];
-$sql = "UPDATE users SET currentQuestion=$currentQuestion WHERE id=$userId";
-$mysqli->query($sql);
+// uživateli nastaví aktuální otázku
+setCurrentUserQuestion($user['id'], $word['id']);
 
+// získání ostatních, špatných, odpovědí
 $answers = getRandomWords($level, $word['id']);
 array_push($answers, $word);
 
-$shiftsCount = rand(0, 3);
-for ($i = 0; $i < $shiftsCount; $i++) {
-    array_push($answers, array_shift($answers));    
-}
+// náhodně zamíchá odpovědi
+$answers = stirRandomly($answers);
 
 $mysqli->close();
 
+function setCurrentUserQuestion($userId, $questionId) {
+    global $mysqli;
+    $sql = "UPDATE users SET currentQuestion=$questionId WHERE id=$userId";
+    $mysqli->query($sql);
+}
 
 function getRandomWord($level) {
     global $mysqli;
@@ -67,6 +67,16 @@ function getRandomWords($level, $omitId = -1, $size = 3) {
     die('Nenašlo se požadovaný počet slov .. getRandomWords()');
 }
 
+function stirRandomly($arr) {
+    $shiftsCount = rand(0, count($arr) - 1);
+
+    for ($i = 0; $i < $shiftsCount; $i++) {
+        array_push($arr, array_shift($arr));    
+    }
+
+    return $arr;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -91,7 +101,7 @@ function getRandomWords($level, $omitId = -1, $size = 3) {
 
 <div class="content">
 
-    <p class="question">Překlad slovíčka <span class="highlighted"><span class="red">"</span><?php echo $englishWord ?><span class="red">"</span></span> je ..</p>
+    <p class="question">Překlad slovíčka <span class="highlighted"><span class="red">"</span><?php echo $word['englishWord'] ?><span class="red">"</span></span> je ..</p>
     
     <div class="answers">
         

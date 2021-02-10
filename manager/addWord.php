@@ -1,5 +1,5 @@
 <?php
-require($_SERVER["DOCUMENT_ROOT"].'/MindQuiz/functions.php');
+require($_SERVER["DOCUMENT_ROOT"].'/mindquiz/functions.php');
 db_connect();
 
 if (isset($_POST['czechWord'], $_POST['englishWord'], $_POST['submit'])) {

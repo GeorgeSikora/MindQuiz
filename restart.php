@@ -1,5 +1,5 @@
 <?php
-require($_SERVER["DOCUMENT_ROOT"].'/MindQuiz/functions.php');
+require($_SERVER["DOCUMENT_ROOT"].'/mindquiz/functions.php');
 db_connect();
 $user = getUser();
 db_close();
