@@ -26,32 +26,23 @@ function getUser($redirectHomeIfNull = true) {
     global $mysqli, $uid;
 
     // načte z coockie user id, jestli je
-    if (isset($_COOKIE['uid'])) {
-        $uid = $_COOKIE['uid'];
-    }
-
+    if (isset($_COOKIE['uid'])) $uid = $_COOKIE['uid'];
+    
     // vyhledá v db, nebo přesměruje na hlavní stranu
     if (isset($uid)) {
         $sql = "SELECT * FROM users WHERE uid='$uid'";
         $result = $mysqli->query($sql);
-
-        if ($row = $result->fetch_assoc()) {
-            return $row;
-        }
+        if ($row = $result->fetch_assoc()) return $row;
     }
 
-    if ($redirectHomeIfNull) {
-        header('location: /mindquiz/');
-    }
+    if ($redirectHomeIfNull) header('location: /mindquiz/');
 }
 
 function getOrCreateUser() {
     global $mysqli;
     $user = getUser(false);
 
-    if ($user) {
-        return $user;
-    }
+    if ($user) return $user;
 
     $uid = uniqid();
 
@@ -64,7 +55,6 @@ function getOrCreateUser() {
 
     return getUser();
 }
-
 
 function getWordsCount() {
     global $mysqli;
@@ -79,29 +69,6 @@ function kick() {
     die();
 }
 
-function managerGate() {
-    global $managerPassword;
-
-    if (isset($_COOKIE['managerPassword'])) {
-        if ($_COOKIE['managaerPassword'] != $managerPassword) {
-            return;
-        }
-    }
-
-    if (!isset($_GET['managaerPassword'])) {
-        kick();
-    }
-    
-    if ($_GET['managaerPassword'] == $managerPassword) {
-        echo 'xasdasdasdasd';
-        setcookie('managerPassword', $_GET['managaerPassword']);
-        return;
-    }
-    
-    kick();
-}
-
-// 393cb020522089c8d6741fb730fadae6
 function isManager() {
     global $managerPassword;
     
@@ -118,8 +85,5 @@ function isManager() {
     
     return ($_GET['managerPassword'] == $managerPassword);
 }
-
-
-
 
 ?>

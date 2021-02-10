@@ -1,10 +1,11 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"].'/mindquiz/functions.php');
 
-if (!isset($_GET['category'], $_GET['level'])) die('vyskytla se chyba');
+if (!isset($_GET['category'], $_GET['level'])) die('něco není nastaveno (GET)');
 
 $category = $_GET['category'];
 $level = $_GET['level'];
+$timeout = 5;
 
 db_connect();
 
@@ -104,19 +105,23 @@ function stirRandomly($arr) {
     <p class="question">Překlad slovíčka <span class="highlighted"><span class="red">"</span><?php echo $word['englishWord'] ?><span class="red">"</span></span> je ..</p>
     
     <div class="answers">
-        
-<?php
-
-foreach ($answers as $answer) {
-    echo '<a href="javascript:void(0)" onclick="sendAnswer('.$answer['id'].')">' . $answer['czechWord'] . '</a>';
-}
-
-?>
+        <?php foreach ($answers as $answer) {
+            echo '<a href="javascript:void(0)" onclick="sendAnswer('.$answer['id'].')">' . $answer['czechWord'] . '</a>';
+        } ?>
     </div>
 
+    <div class="timeout-bar"><div class="line timeout-<?php echo $timeout ?>s"></div></div>
 </div>
 
 </div>
 
 </body>
 </html>
+
+<script>
+
+setTimeout(() => {
+    skipAnswer();
+}, <?php echo($timeout * 1000)?>);
+
+</script>

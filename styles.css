@@ -79,6 +79,10 @@ body {
 
     min-width: 82px;
 }
+.answers a.disabled, button .disabled{
+    background: #888;
+    color: #444;
+}
 
 input {
     font-size: 18px;
@@ -116,6 +120,7 @@ input {
 }
 
 /*** TABLE ***/
+
 .tableStyle {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -140,4 +145,41 @@ input {
     padding-bottom: 12px;
     background-color: #85144b;
     color: white;
+}
+
+
+/*** TIMEOUT BAR ***/
+
+.timeout-bar {
+    margin-top: 24px;
+    height: 12px;
+    width: 100%;
+    background-color: #331000;
+}
+
+.timeout-bar .line {
+    height: 100%;
+    width: 0;
+    background-color: #ff0000;
+    animation-name: timeRun;
+    animation-timing-function: linear;
+}
+
+.timeout-3s  {animation-duration:  3s;}
+.timeout-4s  {animation-duration:  4s;}
+.timeout-5s  {animation-duration:  5s;}
+.timeout-6s  {animation-duration:  6s;}
+.timeout-7s  {animation-duration:  7s;}
+.timeout-8s  {animation-duration:  8s;}
+.timeout-9s  {animation-duration:  9s;}
+.timeout-10s {animation-duration: 10s;}
+.timeout-11s {animation-duration: 11s;}
+.timeout-12s {animation-duration: 12s;}
+.timeout-13s {animation-duration: 13s;}
+.timeout-14s {animation-duration: 14s;}
+.timeout-15s {animation-duration: 15s;}
+
+@keyframes timeRun {
+    from {width: 100%;}
+    to {width: 0;}
 }

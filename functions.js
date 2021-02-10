@@ -10,3 +10,10 @@ function sendAnswer(id) {
         */
     });
 }
+
+function skipAnswer() {
+    $.post( "skipAnswer.php", {})
+    .done(function( data ) {
+        location.reload();
+    });
+}
