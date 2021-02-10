@@ -1,0 +1,143 @@
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #272121;
+}
+
+.small {
+    font-size: 16px;
+}
+.medium {
+    font-size: 24px;
+}
+.large {
+    font-size: 32px;
+}
+
+.center {
+    width: 58%;
+    max-height: 70vh;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+}
+
+.heading {
+    position: relative;
+    padding-bottom: 24px;
+    font-size: 28px;
+    color: #ccc;
+}
+
+.content {
+    padding: 64px;
+    border-radius: 32px;
+    /*
+    background: linear-gradient(to bottom, lightblue 0%, lightyellow 100%);
+    */
+
+    background-color: #ffc478;
+    box-shadow: 0 8px 32px #111;
+}
+.question {
+    color:#272121;
+    font-size: 32px;
+    margin-bottom: 24px;
+}
+.question .highlighted {
+    font-size: 48px;
+    color: #000;
+}
+.question .red {
+    color: #ff4d00;
+}
+
+.answers {
+}
+
+.answers a, button {
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+
+    border: none;
+    outline: none;
+
+    font-size: 24px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background: linear-gradient(to bottom, #FF851B 0%, #FF4136 100%);
+    color: #111;
+    margin: 2px;
+
+    min-width: 82px;
+}
+
+input {
+    font-size: 18px;
+    padding: 4px;
+}
+
+/*** BUTTONS ***/
+
+.button-small {
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+
+    border: none;
+    outline: none;
+
+    font-size: 16px;
+    padding: 2px 0;
+    border-radius: 4px;
+    background: #ff0;
+    color: #111;
+}
+.button-small:hover {
+    background: #aa0;
+    color: #fff;
+}
+
+.button-small.danger {
+    background: #c55;
+    color: #111;
+}
+.button-small.danger:hover {
+    background: #f00;
+    color: #fff;
+}
+
+/*** TABLE ***/
+.tableStyle {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+    text-align: left;
+
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tableStyle td, .tableStyle th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.tableStyle tr:nth-child(even){background-color: #f2f2f2;}
+.tableStyle tr:nth-child(odd){background-color: #e4e4e4;}
+
+.tableStyle th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #85144b;
+    color: white;
+}
