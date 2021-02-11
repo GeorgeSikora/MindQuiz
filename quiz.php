@@ -120,7 +120,9 @@ function increaseAnswersCount() {
 
 <div class="content">
 
-    <p class="question">Překlad slovíčka <span class="highlighted"><span class="red">"</span><?php echo $word['englishWord'] ?><span class="red">"</span></span> je ..</p>
+    <p class="question">
+        Překlad slovíčka 
+        <span class="highlighted"><span class="red">"</span><?php echo $word['englishWord'] ?><span class="red">"</span></span> je ..</p>
     
     <div class="answers">
         <?php foreach ($answers as $answer) {
@@ -128,7 +130,16 @@ function increaseAnswersCount() {
         } ?>
     </div>
 
-    <div class="timeout-bar"><div class="line timeout-<?php echo $timeout ?>s"></div></div>
+    <div class="timeout-bar" id="timeout-bar"><div class="line timeout-<?php echo $timeout ?>s"></div></div>
+
+    <!--
+     <div style="height: 100vh; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+    <div id="answer-feedback">
+        <p class="incorrect">Špatně.</p>
+    </div>
+    </div>
+    -->
+
 </div>
 
 </div>

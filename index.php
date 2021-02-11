@@ -3,8 +3,6 @@ require($_SERVER["DOCUMENT_ROOT"].'/mindquiz/functions.php');
 db_connect();
 
 $user = getOrCreateUser();
-//print_r($user);
-
 $wordsCount = getWordsCount();
 
 db_close();
@@ -24,7 +22,9 @@ db_close();
     <?php includeHead() ?>
 </head>
 <body>
-    
+
+<?php/***** REKLAMY *****/?>
+
 <a href="http://jurek.tech" target="_blank">
 <img src="ads/template.png" style="position: fixed; left: 16px; top: 50%; transform: translateY(-50%); height: 95%;">
 </a>
@@ -32,6 +32,8 @@ db_close();
 <a href="https://spsehavirov.cz" target="_blank">
 <img src="ads/spse.png" style="position: fixed; right: 16px; top: 50%; transform: translateY(-50%); height: 95%;">
 </a>
+
+<?php/***** KONTENT *****/?>
 
 <div class="center">
 
@@ -84,19 +86,22 @@ db_close();
 
 </div>
 
+
+<?php/***** DOLNÍ TEXT *****/?>
+
 <div style='
-position: fixed; 
-display: block; 
-bottom: 32px; 
-left: 50%; 
-transform: translate(-50%, 0); 
-width: 57%; 
-text-align: justify; 
-letter-spacing: -0.02px; 
-line-height: 1.5; 
-margin: 10px;
-font-weight: 400;
-font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    position: fixed; 
+    display: block; 
+    bottom: 32px; 
+    left: 50%; 
+    transform: translate(-50%, 0); 
+    width: 57%; 
+    text-align: justify; 
+    letter-spacing: -0.02px; 
+    line-height: 1.5; 
+    margin: 10px;
+    font-weight: 400;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
 '>
 
     <p style="color: #bbb; font-size: 20px; text-align: center;">O projektu:</p>
@@ -107,15 +112,14 @@ font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-se
         dovést je ke správným odpovědím a zarýt si dané věci, témata a termíny do paměti efektivním systémem opakování a plnění denních cvičení, 
         které by zabíraly pár sekund, ať už na počítači, notebooku, tabletu, či mobilu. 
         Na algoritmu systému ještě pracuji, zatím jsou ještě kvízy ve fázi klasického procvičování, tudíž neberou ohled na minulé odpovědi, z kterých by čerpaly
-        a podle statistik vyhodnocovaly jestli danou věc žák, nebo student ovládá natolik, aby se systém zaobíral opakováním této věci. 
-
+        a podle statistik vyhodnocovaly jestli danou věc žák, nebo student ovládá natolik, aby se systém zaobíral opakováním této věci.
         <br>
     </p>
     
     <p style="margin-top: 16px;">
         Sikora 10.2.2021 <a href="https://github.com/GeorgeSikora" target="_blank" style="color: #fff">GitHub</a>
     </p>
-    </div>
+</div>
 
 </div>
 

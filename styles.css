@@ -50,6 +50,12 @@ body {
     color:#272121;
     font-size: 32px;
     margin-bottom: 24px;
+    
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .question .highlighted {
     font-size: 48px;
@@ -194,4 +200,20 @@ input {
 @keyframes timeRun {
     from {width: 100%;}
     to {width: 0;}
+}
+
+#answer-feedback {
+    overflow:hidden;
+    height: 0px;
+    font-size: 64px;
+} 
+
+#answer-feedback .correct {
+    background-color: #0f0;
+    padding: 64px;
+}
+
+#answer-feedback .incorrect {
+    background-color: #f00;
+    padding: 64px;
 }

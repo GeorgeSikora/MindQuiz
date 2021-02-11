@@ -4,32 +4,26 @@ db_connect();
 
 $user = getUser();
 
-$sql = "SELECT questionsDone, questionsSuccess FROM users WHERE id = " . $user['id'];
-
-$result = $mysqli->query($sql);
-
-$row = $result->fetch_assoc();
-
-$questionsDone = $row['questionsDone'];
-$questionsSuccess = $row['questionsSuccess'];
+$questionsDone = $user['questionsDone'];
+$questionsSuccess = $user['questionsSuccess'];
 
 $successPercentage = round(100 / $questionsDone * $questionsSuccess);
 
 /* HODNOCENÍ
  100 - 90 = 1
-  89 - 80 = 2
+  89 - 75 = 2
   79 - 50 = 3
-  49 - 30 = 4
+  49 - 25 = 4
   29 - 0  = 5
 */
 
 if ($successPercentage >= 90) {
     $mark = 1;
-} else if ($successPercentage >= 80) {
+} else if ($successPercentage >= 75) {
     $mark = 2;
 } else if ($successPercentage >= 50) {
     $mark = 3;
-} else if ($successPercentage >= 30) {
+} else if ($successPercentage >= 25) {
     $mark = 4;
 } else {
     $mark = 5;

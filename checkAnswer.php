@@ -10,27 +10,17 @@ if (!isset($_POST['id'])) {
 db_connect();
 
 if ($user = getUser()) {
-    $sql = "SELECT COUNT(u.id) as count, ew.czechWord FROM users u
-    JOIN englishwords ew ON ew.id = u.currentQuestion 
-    WHERE u.id = " . $user['id'];
 
-    $result = $mysqli->query($sql);
-    $row = $result->fetch_assoc();
-    $count = $row['count'];
-    $correctAnswer = $row['czechWord'];
+    $JoinUserEnglishwords = getJoinUserEnglishwords($user);
+    $count = $JoinUserEnglishwords['count'];
+    $correctAnswer = $JoinUserEnglishwords['czechWord'];
 
     if ($count == 0) {
         echo 'Jsi tady špatně!';
         return;
     }
 
-    $sql = "SELECT czechWord FROM englishwords WHERE id = " . $id;
-    
-    $result = $mysqli->query($sql);
-    $row = $result->fetch_assoc();
-    $answered = $row['czechWord'];
-
-    //increaseAnswersCount();
+    $answered = getEnglishwordById($id)['czechWord'];
 
     if ($answered == $correctAnswer) {
         sendResult(true);
@@ -40,6 +30,22 @@ if ($user = getUser()) {
 }
 
 db_close();
+
+function getJoinUserEnglishwords($user) {
+    global $mysqli;
+    $sql = "SELECT COUNT(u.id) as count, ew.czechWord FROM users u
+    JOIN englishwords ew ON ew.id = u.currentQuestion 
+    WHERE u.id = " . $user['id'];
+    $result = $mysqli->query($sql);
+    return $result->fetch_assoc();
+}
+
+function getEnglishwordById($id) {
+    global $mysqli;
+    $sql = "SELECT * FROM englishwords WHERE id = " . $id;
+    $result = $mysqli->query($sql);
+    return $result->fetch_assoc();
+}
 
 function increaseAnswersCount() {
     global $user, $mysqli;
@@ -51,15 +57,14 @@ function sendResult($success) {
     global $user, $mysqli;
 
     if ($success) {
-        echo 'xddd';
-        
+
         $sql = "UPDATE users SET questionsSuccess = questionsSuccess + 1 WHERE id = " . $user['id'];
         $mysqli->query($sql);
 
     }
+
     $result = new \stdClass();
     $result->success = $success;
-    
     echo json_encode($result);
 }
 
