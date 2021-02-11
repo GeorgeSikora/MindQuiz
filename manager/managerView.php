@@ -4,8 +4,12 @@
     <i class="fas fa-share-square" style="color: #700"></i>
   </a>
 </p>
+
 <div class="answers">
-    <a href="/mindquiz/manager/dictionary.php">Slovník</a>
+  <a href="/mindquiz/manager/dictionary.php">
+    <i class="fas fa-book" style="color: #000a;"></i>
+    Slovník
+  </a>
 </div>
 
 <script>
@@ -13,7 +17,7 @@
 function fallbackCopyTextToClipboard(text) {
   var textArea = document.createElement("textarea");
   textArea.value = text;
-  
+
   // Avoid scrolling to bottom
   textArea.style.top = "0";
   textArea.style.left = "0";

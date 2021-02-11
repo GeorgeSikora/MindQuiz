@@ -1,10 +1,12 @@
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 <?php
 
 $mysqli;
 $uid;
 $managerPassword = 'f17e01e1e79b6bea00ab4941f23e2112';
+
+function includeHead() {
+    require('head.php');
+} 
 
 function db_connect() {
     global $mysqli;

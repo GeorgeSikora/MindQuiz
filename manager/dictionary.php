@@ -25,6 +25,7 @@ db_close();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/MindQuiz/functions.js"></script>
     <link rel="stylesheet" href="/MindQuiz/styles.css">
+    <?php includeHead() ?>
 </head>
 <body>
 
@@ -35,6 +36,10 @@ db_close();
     </div>
 
     <div class="content">
+
+        <div style="position: fixed;">
+            <a href="/mindquiz/" style="text-decoration: none; color: #000c;"><i class="fas fa-chevron-left"></i> Zpět</a>
+        </div>
 
         <p class="question">Správa slovníku</p>
         

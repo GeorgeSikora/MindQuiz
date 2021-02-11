@@ -30,7 +30,7 @@ if ($user = getUser()) {
     $row = $result->fetch_assoc();
     $answered = $row['czechWord'];
 
-    increaseAnswersCount($user);
+    //increaseAnswersCount();
 
     if ($answered == $correctAnswer) {
         sendResult(true);

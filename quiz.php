@@ -5,7 +5,15 @@ if (!isset($_GET['category'], $_GET['level'])) die('něco není nastaveno (GET)'
 
 $category = $_GET['category'];
 $level = $_GET['level'];
+
 $timeout = 5;
+$questionsTotal = 10;
+
+if ($level == 'boss') {
+    $timeout = 15;
+    $questionsTotal = 100;
+    $level = 1;
+}
 
 db_connect();
 
@@ -13,10 +21,13 @@ $user = getUser();
 $questionsDone = $user['questionsDone'] + 1;
 
 // dosáhl poslední otázky
-if ($questionsDone > 10) {
+if ($questionsDone > $questionsTotal) {
     header('location: /mindquiz/final.php'); 
     return;
 }
+
+// přičte k počtu otázek uživatele
+increaseAnswersCount();
 
 // náhodné slovíčko pro otázku
 $word = getRandomWord($level);
@@ -78,6 +89,12 @@ function stirRandomly($arr) {
     return $arr;
 }
 
+function increaseAnswersCount() {
+    global $user, $mysqli;
+    $sql = "UPDATE users SET questionsDone = questionsDone + 1 WHERE id = " . $user['id'];
+    $mysqli->query($sql);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -91,13 +108,14 @@ function stirRandomly($arr) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="functions.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <?php includeHead() ?>
 </head>
 <body>
 
 <div class="center">
 
 <div class="heading">
-    <p>Otázka <?php echo $questionsDone ?> z 10</p>
+    <p>Otázka <?php echo $questionsDone ?> z <?php echo $questionsTotal ?></p>
 </div>
 
 <div class="content">

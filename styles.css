@@ -73,13 +73,23 @@ body {
     font-size: 24px;
     padding: 8px 12px;
     border-radius: 4px;
-    background: linear-gradient(to bottom, #FF851B 0%, #FF4136 100%);
+    background: linear-gradient(to bottom, #ff993f 0%, #792721 100%);
     color: #111;
     margin: 2px;
 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
     min-width: 82px;
 }
-.answers a.disabled, button .disabled{
+
+.answers a:hover, button:hover {
+    background: linear-gradient(to bottom, #FF851B 0%, #ff463c 100%);
+}
+.answers a.disabled, button .disabled {
     background: #888;
     color: #444;
 }

@@ -3,7 +3,6 @@ require($_SERVER["DOCUMENT_ROOT"].'/mindquiz/functions.php');
 db_connect();
 
 $user = getOrCreateUser();
-
 //print_r($user);
 
 $wordsCount = getWordsCount();
@@ -22,13 +21,22 @@ db_close();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="functions.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <?php includeHead() ?>
 </head>
 <body>
+    
+<a href="http://jurek.tech" target="_blank">
+<img src="ads/template.png" style="position: fixed; left: 16px; top: 50%; transform: translateY(-50%); height: 95%;">
+</a>
+
+<a href="https://spsehavirov.cz" target="_blank">
+<img src="ads/spse.png" style="position: fixed; right: 16px; top: 50%; transform: translateY(-50%); height: 95%;">
+</a>
 
 <div class="center">
 
     <div class="heading">
-        <p>MindQuiz - nauč se pomocí daily questů!</p>
+        <p>MindQuiz <i class="fas fa-brain"></i> nauč se pomocí daily questů!</p>
         <br>
         <p class="small">Celkem máme <span class="medium"><?php echo $wordsCount ?></span> slovíček k prozkoušení!</p>
     </div>
@@ -42,15 +50,39 @@ db_close();
         <p class="question">Anglická slova</p>
 
         <div class="answers">
-            <a href="/mindquiz/quiz.php?category=english&level=1">Úroveň 1<span class="small">(10 otázek)</span></a>
-            <a class="disabled">Úroveň 2<span class="small">(10 otázek)</span></a>
-            <a class="disabled">Úroveň 3<span class="small">(10 otázek)</span></a>
+
+            <a href="/mindquiz/quiz.php?category=english&level=1">
+                <i class="fas fa-lock-open" style="color: #000a;"></i>
+                Úroveň 1 <span class="small">(10 otázek)</span>
+            </a>
+        
+            <a class="disabled">
+                <i class="fas fa-wrench" style="color: #fffa;"></i>
+                Úroveň 2 <span class="small">(10 otázek)</span>
+            </a>
+
+            <a class="disabled">
+                <i class="fas fa-wrench" style="color: #fffa;"></i>
+                Úroveň 3 <span class="small">(10 otázek)</span>
+            </a>
+            
+            <!--
+            <a class="disabled" href="/mindquiz/quiz.php?category=english&level=1">
+                <i class="fas fa-lock" style="color: #000a;"></i>
+                BOSS <span class="small">(100 otázek)</span>
+            </a>
+            -->
+            
+            <a href="/mindquiz/quiz.php?category=english&level=boss">
+                <i class="fas fa-lock-open" style="color: #000a;"></i>
+                BOSS <span class="small">(100 otázek)</span>
+            </a>
+
         </div>
 
     </div>
 
 </div>
-
 
 <div style='
 position: fixed; 
@@ -58,7 +90,7 @@ display: block;
 bottom: 32px; 
 left: 50%; 
 transform: translate(-50%, 0); 
-width: 71%; 
+width: 57%; 
 text-align: justify; 
 letter-spacing: -0.02px; 
 line-height: 1.5; 
