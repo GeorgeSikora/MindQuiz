@@ -24,7 +24,7 @@ db_close();
 <body>
 
 <?php/***** REKLAMY *****/?>
-
+<!--
 <a href="http://jurek.tech" target="_blank">
 <img src="ads/template.png" style="position: fixed; left: 16px; top: 50%; transform: translateY(-50%); height: 95%;">
 </a>
@@ -32,6 +32,7 @@ db_close();
 <a href="https://spsehavirov.cz" target="_blank">
 <img src="ads/spse.png" style="position: fixed; right: 16px; top: 50%; transform: translateY(-50%); height: 95%;">
 </a>
+-->
 
 <?php/***** KONTENT *****/?>
 
@@ -68,58 +69,42 @@ db_close();
                 Úroveň 3 <span class="small">(10 otázek)</span>
             </a>
             
-            <!--
-            <a class="disabled" href="/mindquiz/quiz.php?category=english&level=1">
+            
+            <a class="disabled">
                 <i class="fas fa-lock" style="color: #000a;"></i>
                 BOSS <span class="small">(100 otázek)</span>
             </a>
-            -->
             
+            <!--
             <a href="/mindquiz/quiz.php?category=english&level=boss">
                 <i class="fas fa-lock-open" style="color: #000a;"></i>
                 BOSS <span class="small">(100 otázek)</span>
             </a>
+            -->
 
         </div>
 
     </div>
 
-</div>
 
+    <?php/***** DOLNÍ TEXT *****/?>
 
-<?php/***** DOLNÍ TEXT *****/?>
+    <div class="bottom-text">
 
-<div style='
-    position: fixed; 
-    display: block; 
-    bottom: 32px; 
-    left: 50%; 
-    transform: translate(-50%, 0); 
-    width: 57%; 
-    text-align: justify; 
-    letter-spacing: -0.02px; 
-    line-height: 1.5; 
-    margin: 10px;
-    font-weight: 400;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
-'>
+        <p class="title">O projektu:</p>
 
-    <p style="color: #bbb; font-size: 20px; text-align: center;">O projektu:</p>
-
-    <div style="color: #aaa; text-align: center;"> 
-    <p style="font-size: 18px; text-align: justify;">
-        Cílem projektu je zjednodušit náuku a procvičování otázek studentů, 
-        dovést je ke správným odpovědím a zarýt si dané věci, témata a termíny do paměti efektivním systémem opakování a plnění denních cvičení, 
-        které by zabíraly pár sekund, ať už na počítači, notebooku, tabletu, či mobilu. 
-        Na algoritmu systému ještě pracuji, zatím jsou ještě kvízy ve fázi klasického procvičování, tudíž neberou ohled na minulé odpovědi, z kterých by čerpaly
-        a podle statistik vyhodnocovaly jestli danou věc žák, nebo student ovládá natolik, aby se systém zaobíral opakováním této věci.
-        <br>
-    </p>
-    
-    <p style="margin-top: 16px;">
-        Sikora 10.2.2021 <a href="https://github.com/GeorgeSikora" target="_blank" style="color: #fff">GitHub</a>
-    </p>
-</div>
+        <p class="content-text">
+            Cílem projektu je zjednodušit náuku a procvičování otázek studentů, 
+            dovést je ke správným odpovědím a zarýt si dané věci, témata a termíny do paměti efektivním systémem opakování a plnění denních cvičení, 
+            které by zabíraly pár sekund, ať už na počítači, notebooku, tabletu, či mobilu. 
+            Na algoritmu systému ještě pracuji, zatím jsou ještě kvízy ve fázi klasického procvičování, tudíž neberou ohled na minulé odpovědi, z kterých by čerpaly
+            a podle statistik vyhodnocovaly jestli danou věc žák, nebo student ovládá natolik, aby se systém zaobíral opakováním této věci.
+        </p>
+        
+        <p class="signature">
+            Sikora 10.2.2021 <a href="https://github.com/GeorgeSikora" target="_blank" style="color: #fff">GitHub</a>
+        </p>
+    </div>
 
 </div>
 

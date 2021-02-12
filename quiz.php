@@ -6,7 +6,7 @@ if (!isset($_GET['category'], $_GET['level'])) die('něco není nastaveno (GET)'
 $category = $_GET['category'];
 $level = $_GET['level'];
 
-$timeout = 5;
+$timeout = 6;
 $questionsTotal = 10;
 
 if ($level == 'boss') {
@@ -120,6 +120,8 @@ function increaseAnswersCount() {
 
 <div class="content">
 
+    <div id="inner-content">
+
     <p class="question">
         Překlad slovíčka 
         <span class="highlighted"><span class="red">"</span><?php echo $word['englishWord'] ?><span class="red">"</span></span> je ..</p>
@@ -132,13 +134,12 @@ function increaseAnswersCount() {
 
     <div class="timeout-bar" id="timeout-bar"><div class="line timeout-<?php echo $timeout ?>s"></div></div>
 
-    <!--
-     <div style="height: 100vh; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+    
     <div id="answer-feedback">
-        <p class="incorrect">Špatně.</p>
     </div>
+
     </div>
-    -->
+    
 
 </div>
 

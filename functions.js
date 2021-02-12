@@ -3,36 +3,58 @@ let answered = false;
 function sendAnswer(id) {
     if (answered) return;
     answered = true;
-
+    
+    $('#timeout-bar').animate({
+        opacity: .5,
+        height: "0"
+    }, 100);
 
     $.post( "checkAnswer.php", { id: id })
     .done(function( data ) {
         var obj = JSON.parse(data);
 
-        $('#timeout-bar').animate({
-            opacity: .5,
-            height: "0"
-        }, 50, function() {
-                        
-/*
-           $( "#answer-feedback" ).animate({
-                height: "100%",
-            }, 150 );
-            */
-
-            /*
+            
             if (obj.success) {
                 $('#answer-feedback').html('<p class="correct">Správně!</p>');
             } else {
                 $('#answer-feedback').html('<p class="incorrect">Špatně.</p>');
             }
-            */
 
-            setTimeout(()=>{
-                location.reload();
-            }, 500);
 
-        });
+            var previousCss  = $("#answer-feedback").attr("style");
+            $("#answer-feedback").css({
+                maxHeight: '100%'
+            });
+            var optionHeight = $("#answer-feedback").height();
+            $("#answer-feedback").attr("style", previousCss ? previousCss : "");
+
+            console.log(optionHeight);
+
+            $("#answer-feedback").animate({
+                "max-height": optionHeight
+            }, 200, function() {
+
+                setTimeout(()=>{
+    
+                    $("#answer-feedback").animate({
+                        "max-height": "1.2vh"
+                    }, 100, function() {
+
+                        
+                        $("#inner-content").animate({
+                            "opacity": 0
+                        }, 150, function() {
+
+                            location.reload();
+
+                        });
+                        
+                    });
+
+                }, 300);
+
+            });
+        
     });
 }
 
