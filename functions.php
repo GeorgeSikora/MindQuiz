@@ -10,7 +10,7 @@ function includeHead() {
 
 function db_connect() {
     global $mysqli;
-    $mysqli = new mysqli("localhost", "root", "", "mindquiz2");
+    $mysqli = new mysqli("localhost", "root", "", "mindquiz");
     if ($mysqli -> connect_errno) {
     echo "Nepodařilo se připojit k databázi: " . $mysqli -> connect_error;
     exit();

@@ -13,13 +13,11 @@ function sendAnswer(id) {
     .done(function( data ) {
         var obj = JSON.parse(data);
 
-            
             if (obj.success) {
                 $('#answer-feedback').html('<p class="correct">Správně!</p>');
             } else {
                 $('#answer-feedback').html('<p class="incorrect">Špatně.</p>');
             }
-
 
             var previousCss  = $("#answer-feedback").attr("style");
             $("#answer-feedback").css({

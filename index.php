@@ -24,15 +24,14 @@ db_close();
 <body>
 
 <?php/***** REKLAMY *****/?>
-<!--
+
 <a href="http://jurek.tech" target="_blank">
-<img src="ads/template.png" style="position: fixed; left: 16px; top: 50%; transform: translateY(-50%); height: 95%;">
+<img src="ads/template.png" style="position: fixed; left: 0.8vh; top: 50%; transform: translateY(-50%); height: 90%;">
 </a>
 
-<a href="https://spsehavirov.cz" target="_blank">
-<img src="ads/spse.png" style="position: fixed; right: 16px; top: 50%; transform: translateY(-50%); height: 95%;">
+<a href="http://jurek.tech" target="_blank">
+<img src="ads/sajkora.png" style="position: fixed; right: 0.8vh; top: 50%; transform: translateY(-50%); height: 90%;">
 </a>
--->
 
 <?php/***** KONTENT *****/?>
 
@@ -84,6 +83,11 @@ db_close();
 
         </div>
 
+        
+        <div style="padding-top: 0.2vh;">
+        <a href="form/">Kontaktovat (Práce se souborem v PHP)</a> 
+        </div>
+
     </div>
 
 
@@ -100,10 +104,26 @@ db_close();
             Na algoritmu systému ještě pracuji, zatím jsou ještě kvízy ve fázi klasického procvičování, tudíž neberou ohled na minulé odpovědi, z kterých by čerpaly
             a podle statistik vyhodnocovaly jestli danou věc žák, nebo student ovládá natolik, aby se systém zaobíral opakováním této věci.
         </p>
+
+        <p class="signature">
+            Sikora 10.2.2021 <a href="https://github.com/GeorgeSikora" target="_blank" style="color: #fff">GitHub 💾</a>
+        </p>
+
+        <br>
+
+        <p class="title">Novinky:</p>
+
+        <p class="content-text">
+            Pracuje se na separované verzi, kde se zlepšila funkčnost kvízu, z hlediska backendu. Kompletně nová struktura databáze, další funkce, pohodlnější administrace, 
+            lepší design, více slovíček, hbitější chod, více jazyků, další úrovně, nábor administrátorů, plán na rozvoj a originalitu, méně reklam 😀
+        </p>
         
         <p class="signature">
-            Sikora 10.2.2021 <a href="https://github.com/GeorgeSikora" target="_blank" style="color: #fff">GitHub</a>
+            Sikora 24.2.2021 <a href="https://github.com/GeorgeSikora" target="_blank" style="color: #fff">GitHub 💾</a>
         </p>
+        
+        <br><br>
+
     </div>
 
 </div>
